@@ -1,6 +1,6 @@
 create table if not exists users(
     user_ssn int,
-    phone_number int,
+    phone_number text,
     want_newsletter boolean,
     name text,
     address text,
