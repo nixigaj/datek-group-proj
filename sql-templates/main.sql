@@ -21,16 +21,7 @@ create table if not exists orders(
     foreign key(user_ssn) references users(user_ssn)
 );
 
-create table if not exists reviews(
-    user_ssn int not null,
-    product_id int not null,
-    stars int not null,
-    review_text text,
-    primary key(user_ssn, product_id),
-    foreign key(user_ssn) references users(user_ssn),
-    foreign key(product_id) references products(product_id)
 
-);
 
 create table if not exists products(
     product_id int not null,
@@ -41,6 +32,17 @@ create table if not exists products(
     description text,
     title text not null,
     primary key(product_id)
+
+);
+
+create table if not exists reviews(
+    user_ssn int not null,
+    product_id int not null,
+    stars int not null,
+    review_text text,
+    primary key(user_ssn, product_id),
+    foreign key(user_ssn) references users(user_ssn),
+    foreign key(product_id) references products(product_id)
 
 );
 
@@ -71,6 +73,12 @@ create table if not exists has_products(
     foreign key(product_id) references products(product_id)
 );
 
+create table if not exists keywords(
+    keyword_id int not null,
+    keyword_name text not null,
+    primary key(keyword_id)
+);
+
 create table if not exists has_keywords(
     keyword_id int not null,
     product_id int not null,
@@ -79,8 +87,4 @@ create table if not exists has_keywords(
     foreign key(product_id) references products(product_id)
 );
 
-create table if not exists keywords(
-    keyword_id int not null,
-    keyword_name text not null,
-    primary key(keyword_id)
-);
+
