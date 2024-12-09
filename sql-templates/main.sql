@@ -1,38 +1,39 @@
 create table if not exists users(
-    user_ssn int,
-    phone_number text,
+    user_ssn int not null,
+    phone_number text not null,
     want_newsletter boolean,
-    name text,
+    name text not null,
     address text,
-    password text,
+    password text not null,
     primary key(user_ssn)
 );
 
 create table if not exists orders(
     user_ssn int not null,
     order_id int not null,
-    payment_reference int,
-    cost int,
-    tracking_number int,
+    payment_reference int not null,
+    cost int not null,
+    tracking_number int not null,
     last_changed_date date,
     status text,
     order_date date,
     primary key(order_id),
-    foreign key(user_ssn) references users(user_ssn)
+    foreign key(user_ssn) references users(user_ssn),
+	check(cost >= 0),
+    unique(tracking_number)
 );
-
-
 
 create table if not exists products(
     product_id int not null,
     quantity int not null,
     vat int not null,
-    sale boolean,
+    sale int,
     retail_price int not null,
     description text,
     title text not null,
-    primary key(product_id)
-
+    primary key(product_id),
+    check(retail_price > 0),
+	check(0 <= sale <= 100)
 );
 
 create table if not exists reviews(
@@ -50,6 +51,8 @@ create table if not exists order_items(
     product_id int not null,
     order_id int not null,
     primary key(product_id, order_id),
+    quantity int,
+    check(quantity > 0),
     foreign key(product_id) references products(product_id),
     foreign key(order_id) references orders(order_id)
 );
@@ -64,7 +67,6 @@ create table if not exists departments(
     primary key(title),
     foreign key(parent_title) references departments(title)
 );
-
 create table if not exists has_products(
     product_id int not null,
     title varchar(255) not null,
@@ -86,5 +88,3 @@ create table if not exists has_keywords(
     foreign key(keyword_id) references keywords(keyword_id),
     foreign key(product_id) references products(product_id)
 );
-
-
