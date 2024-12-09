@@ -20,7 +20,7 @@ LIMIT 10;
 
 # Query 4:
 
-SELECT DISTINCT p.product_id, p.title, p.description, p.retail_price
+SELECT DISTINCT  p.title
 FROM products p
 JOIN has_keywords hk ON p.product_id = hk.product_id
 WHERE hk.keyword_id IN (
@@ -30,3 +30,6 @@ WHERE hk.keyword_id IN (
 ) AND p.product_id != 101;
 
 
+#Query 5
+
+SELECT DISTINCT
