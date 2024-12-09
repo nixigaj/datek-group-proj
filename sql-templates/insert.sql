@@ -47,8 +47,8 @@ VALUES
 -- Insert users
 INSERT INTO users (user_ssn, phone_number, want_newsletter, name, address, password)
 VALUES
-    (101, 1234567890, TRUE, 'John Doe', '123 Main Street, Cityville', 'password123'),
-    (102, 9876543210, FALSE, 'Jane Smith', '456 Elm Street, Townsville', 'password456');
+    (101, '1234567890', TRUE, 'John Doe', '123 Main Street, Cityville', 'password123'),
+    (102, '9876543210', FALSE, 'Jane Smith', '456 Elm Street, Townsville', 'password456');
 -- Insert reviews for the same product by both users
 INSERT INTO reviews (user_ssn, product_id, stars, review_text)
 VALUES

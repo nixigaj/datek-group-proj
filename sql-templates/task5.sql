@@ -14,7 +14,7 @@ WHERE parent_title IS NULL;
 
 SELECT product_id, title, retail_price, description
 FROM products
-WHERE sale = TRUE
+WHERE sale > 0
 ORDER BY retail_price ASC
 LIMIT 10;
 
@@ -32,4 +32,27 @@ WHERE hk.keyword_id IN (
 
 #Query 5
 
-SELECT DISTINCT
+SELECT
+    p.title,
+    p.description,
+    p.retail_price,
+    AVG(r.stars)
+FROM
+    products p
+JOIN
+    has_products hp ON p.product_id = hp.product_id
+JOIN
+    departments d ON hp.title = d.title
+JOIN
+    reviews r ON p.product_id = r.product_id
+WHERE
+    d.title = 'mobiles';
+
+Select
+    p.title,
+    p.sale
+from
+    products p
+order by p.sale DESC
+
+
