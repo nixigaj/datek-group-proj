@@ -1,22 +1,22 @@
 -- Insert top-level departments
 INSERT INTO departments (title, parent_title, root_url, breadcrumbs, description, logo)
 VALUES
-    ('Electronics', NULL, '/electronics', '["Home"]', 'All kinds of electronic items.', 'electronics_logo.png'),
-    ('Fashion', NULL, '/fashion', '["Home"]', 'Clothing and accessories.', 'fashion_logo.png');
+    ('Electronics', NULL, '/electronics', '["Home", "Electronics"]', 'All kinds of electronic items.', 'electronics_logo.png'),
+    ('Fashion', NULL, '/fashion', '["Home", "Fashion"]', 'Clothing and accessories.', 'fashion_logo.png');
 
 -- Insert child departments for Electronics
 INSERT INTO departments (title, parent_title, root_url, breadcrumbs, description, logo)
 VALUES
-    ('Mobiles', 'Electronics', '/electronics/mobiles', '["Home", "Electronics"]', 'Mobile phones and accessories.', 'mobiles_logo.png'),
-    ('Laptops', 'Electronics', '/electronics/laptops', '["Home", "Electronics"]', 'Laptops and accessories.', 'laptops_logo.png'),
-    ('Cameras', 'Electronics', '/electronics/cameras', '["Home", "Electronics"]', 'Cameras and accessories.', 'cameras_logo.png');
+    ('Mobiles', 'Electronics', '/electronics/mobiles', '["Home", "Electronics", "Mobiles"]', 'Mobile phones and accessories.', 'mobiles_logo.png'),
+    ('Laptops', 'Electronics', '/electronics/laptops', '["Home", "Electronics", "Laptops"]', 'Laptops and accessories.', 'laptops_logo.png'),
+    ('Cameras', 'Electronics', '/electronics/cameras', '["Home", "Electronics", "Cameras"]', 'Cameras and accessories.', 'cameras_logo.png');
 
 -- Insert child departments for Fashion
 INSERT INTO departments (title, parent_title, root_url, breadcrumbs, description, logo)
 VALUES
-    ('Men', 'Fashion', '/fashion/men', '["Home", "Fashion"]', 'Men clothing and accessories.', 'men_logo.png'),
-    ('Women', 'Fashion', '/fashion/women', '["Home", "Fashion"]', 'Women clothing and accessories.', 'women_logo.png'),
-    ('Kids', 'Fashion', '/fashion/kids', '["Home", "Fashion"]', 'Kids clothing and accessories.', 'kids_logo.png');
+    ('Men', 'Fashion', '/fashion/men', '["Home", "Fashion", "Men"]', 'Men clothing and accessories.', 'men_logo.png'),
+    ('Women', 'Fashion', '/fashion/women', '["Home", "Fashion", "Women"]', 'Women clothing and accessories.', 'women_logo.png'),
+    ('Kids', 'Fashion', '/fashion/kids', '["Home", "Fashion", "Kids"]', 'Kids clothing and accessories.', 'kids_logo.png');
 
 -- Insert products
 INSERT INTO products (product_id, quantity, vat, sale, retail_price, description, title)
