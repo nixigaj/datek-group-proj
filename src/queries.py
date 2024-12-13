@@ -11,7 +11,6 @@ get_products = """
 SELECT
     p.product_id,
     p.title,
-    p.description,
     p.retail_price * (1-p.sale/100) as price_after_sale
 FROM
     products p
