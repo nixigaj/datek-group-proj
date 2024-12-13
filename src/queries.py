@@ -30,7 +30,14 @@ where d.parent_title = '{parent_title}';
 
 
 get_product_sale = """
-select p.sale 
+select p.title, p.sale 
 from products p
 where p.product_id = '{product_id}';
 """
+
+update_sale = """
+update products p
+set p.sale = '{sale}'
+where p.product_id = '{product_id}';
+"""
+
