@@ -13,8 +13,12 @@ WHERE
     d.title = 'Men';
 
 
-Select d.parent_title
+Select d.title
 from departments d
-where d.title = :d_title
+where d.parent_title = :d_title;
+
+
+select p.sale from products p
+where p.product_id = {product_id}
 
 

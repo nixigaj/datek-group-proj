@@ -14,6 +14,8 @@ database = "datek"
 
 connection = create_server_connection(host_name, user_name, user_password, database)
 
-#perform_database_query(connection, )
+print(perform_database_query(connection, query1.format(department_title = "Men")))
+
+
 
 
