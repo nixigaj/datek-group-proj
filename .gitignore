@@ -1,3 +1,4 @@
 # Editors
 .idea
 .vscode
+venv/
