@@ -64,3 +64,59 @@ INSERT INTO order_items (product_id, order_id)
 VALUES
     (1, 1);
 
+-- Insert keywords
+INSERT INTO keywords (keyword_id, keyword_name)
+VALUES
+    (1, 'Smartphone'),
+    (2, 'Android'),
+    (3, 'iOS'),
+    (4, 'Laptop'),
+    (5, 'Gaming'),
+    (6, 'Camera'),
+    (7, 'DSLR'),
+    (8, 'Clothing'),
+    (9, 'Menswear'),
+    (10, 'Womenswear'),
+    (11, 'Kidswear'),
+    (12, 'Fashion Accessories'),
+    (13, 'Electronics'),
+    (14, 'Mobile Accessories');
+
+-- Insert into has_keywords
+INSERT INTO has_keywords (keyword_id, product_id)
+VALUES
+    -- Mobiles
+    (1, 1), -- Smartphone for Product 1
+    (2, 1), -- Android for Product 1
+    (14, 1), -- Mobile Accessories for Product 1
+    (3, 2), -- iOS for Product 2
+    (1, 2), -- Smartphone for Product 2
+
+    -- Laptops
+    (4, 3), -- Laptop for Product 3
+    (5, 3), -- Gaming for Product 3
+    (13, 3), -- Electronics for Product 3
+    (4, 4), -- Laptop for Product 4
+    (13, 4), -- Electronics for Product 4
+
+    -- Cameras
+    (6, 5), -- Camera for Product 5
+    (7, 5), -- DSLR for Product 5
+    (13, 5), -- Electronics for Product 5
+
+    -- Men's Fashion
+    (8, 6), -- Clothing for Product 6
+    (9, 6), -- Menswear for Product 6
+    (12, 6), -- Fashion Accessories for Product 6
+
+    -- Women's Fashion
+    (8, 7), -- Clothing for Product 7
+    (10, 7), -- Womenswear for Product 7
+    (12, 7), -- Fashion Accessories for Product 7
+
+    -- Kids' Fashion
+    (8, 8), -- Clothing for Product 8
+    (11, 8), -- Kidswear for Product 8
+    (12, 8); -- Fashion Accessories for Product 8
+
+
