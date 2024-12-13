@@ -1,7 +1,8 @@
 # Query 1:
 SELECT description AS welcome_text
 FROM departments
-WHERE parent_title IS NULL;
+WHERE parent_title IS NULL
+LIMIT 1;
 
 # Query 2:
 
@@ -14,19 +15,19 @@ WHERE parent_title IS NULL;
 SELECT product_id, title, retail_price, description
 FROM products
 WHERE sale > 0
-ORDER BY retail_price
+ORDER BY retail_price ASC
 LIMIT 10;
 
 # Query 4:
 
-SELECT DISTINCT p.title
+SELECT DISTINCT  p.title
 FROM products p
 JOIN has_keywords hk ON p.product_id = hk.product_id
 WHERE hk.keyword_id IN (
     SELECT keyword_id
     FROM has_keywords
-    WHERE product_id = :product_id
-) AND p.product_id != :product_id;
+    WHERE product_id = 101
+) AND p.product_id != 101;
 
 
 #Query 5
@@ -47,14 +48,11 @@ JOIN
 WHERE
     d.title = 'mobiles';
 
-
-#Query 6
-
-SELECT
+Select
     p.title,
     p.sale
-FROM
+from
     products p
-ORDER BY p.sale DESC
+order by p.sale DESC
 
 
