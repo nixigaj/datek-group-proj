@@ -12,8 +12,7 @@ SELECT
     p.product_id,
     p.title,
     p.retail_price * (1-p.sale/100) as price_after_sale
-FROM
-    products p
+FROM products p
 JOIN
     has_products hp ON p.product_id = hp.product_id
 JOIN
@@ -37,7 +36,7 @@ where p.product_id = '{product_id}';
 
 update_sale = """
 update products p
-set p.sale = '{sale}'
+set p.sale = {sale}
 where p.product_id = '{product_id}';
 """
 

@@ -24,7 +24,6 @@ def perform_database_query(connection, query):
     result = None
     try:
         cursor.execute(query)
-
         result = cursor.fetchall()
         return result
     except Error as err:
