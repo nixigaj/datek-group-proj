@@ -11,7 +11,6 @@ get_products = """
 SELECT
     p.product_id,
     p.title,
-    p.description,
     p.retail_price
 FROM
     products p
