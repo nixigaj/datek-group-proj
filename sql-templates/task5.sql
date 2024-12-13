@@ -26,8 +26,8 @@ JOIN has_keywords hk ON p.product_id = hk.product_id
 WHERE hk.keyword_id IN (
     SELECT keyword_id
     FROM has_keywords
-    WHERE product_id = 101
-) AND p.product_id != 101;
+    WHERE product_id = 1
+) AND p.product_id != 1;
 
 
 #Query 5
