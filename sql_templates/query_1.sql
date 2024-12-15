@@ -12,13 +12,9 @@ JOIN
 WHERE
     d.title = 'Men';
 
-
 Select d.title
 from departments d
 where d.parent_title = :d_title;
 
-
 select p.sale from products p
-where p.product_id = {product_id}
-
-
+where p.product_id = {product_id};

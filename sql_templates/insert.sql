@@ -31,6 +31,7 @@ VALUES
     (8, 40, 18, TRUE, 800, 'DSLR camera', 'DSLR Camera Pro'),
     (9, 70, 18, TRUE, 70, 'Casual women top', 'Women Top'),
     (10, 90, 18, FALSE, 15, 'Kids gloves', 'Kids Gloves');
+
 -- Link products to departments
 INSERT INTO has_products (product_id, title)
 VALUES
@@ -44,16 +45,19 @@ VALUES
     (8, 'Cameras'),
     (9, 'Women'),
     (10, 'Kids');
+
 -- Insert users
 INSERT INTO users (user_ssn, phone_number, want_newsletter, name, address, password)
 VALUES
     (101, '1234567890', TRUE, 'John Doe', '123 Main Street, Cityville', 'password123'),
     (102, '9876543210', FALSE, 'Jane Smith', '456 Elm Street, Townsville', 'password456');
+
 -- Insert reviews for the same product by both users
 INSERT INTO reviews (user_ssn, product_id, stars, review_text)
 VALUES
     (101, 1, 5, 'Amazing smartphone with great features!'),
     (102, 1, 4, 'Good value for money. Recommended!');
+
 -- Insert an order for one of the users
 INSERT INTO orders (user_ssn, order_id, payment_reference, cost, tracking_number, last_changed_date, status, order_date)
 VALUES
@@ -118,5 +122,3 @@ VALUES
     (8, 8), -- Clothing for Product 8
     (11, 8), -- Kidswear for Product 8
     (12, 8); -- Fashion Accessories for Product 8
-
-

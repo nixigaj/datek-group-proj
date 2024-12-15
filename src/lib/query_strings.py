@@ -1,11 +1,6 @@
-
-# ---------------------------------------------------- #
-# Queries
-# ---------------------------------------------------- #
-
 query = """
-SELECT * FROM {table}"""
-
+SELECT * FROM {table}
+"""
 
 get_products = """
 SELECT
@@ -27,7 +22,6 @@ from departments d
 where d.parent_title = '{parent_title}';
 """
 
-
 get_product_sale = """
 select p.title, p.sale 
 from products p
@@ -39,4 +33,3 @@ update products p
 set p.sale = {sale}
 where p.product_id = '{product_id}';
 """
-
