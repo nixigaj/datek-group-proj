@@ -1,7 +1,3 @@
-query = """
-SELECT * FROM {table}
-"""
-
 get_products = """
 SELECT
     p.product_id,
@@ -13,23 +9,23 @@ JOIN
 JOIN
     departments d ON hp.title = d.title
 WHERE
-    d.title = '{department_title}';
+    d.title = %s;
 """
 
 get_department_parent_title = """
-Select d.title
-from departments d
-where d.parent_title = '{parent_title}';
+SELECT d.title
+FROM departments d
+WHERE d.parent_title = %s;
 """
 
 get_product_sale = """
-select p.title, p.sale 
-from products p
-where p.product_id = '{product_id}';
+SELECT p.title, p.sale 
+FROM products p
+WHERE p.product_id = %s;
 """
 
 update_sale = """
-update products p
-set p.sale = {sale}
-where p.product_id = '{product_id}';
+UPDATE products p
+SET p.sale = %s
+WHERE p.product_id = %s;
 """

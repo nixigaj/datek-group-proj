@@ -30,16 +30,19 @@ def get_db_conn():
         print(f"database connection error: '{db_err}'")
     return None
 
-def perform_db_query(connection, query):
+def perform_db_query(connection, query, params=None):
     cursor = connection.cursor()
 
     try:
-        cursor.execute(query)
+        if params:
+            cursor.execute(query, params)
+        else:
+            cursor.execute(query)
         result = cursor.fetchall()
         connection.commit()
         return result
 
     except Error as err:
-        print(f"error: '{err}'")
+        print(f"Error: '{err}'")
         connection.rollback()
     return None
