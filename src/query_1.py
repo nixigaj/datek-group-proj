@@ -9,7 +9,7 @@ connection = get_db_conn()
 if not connection:
     exit(1)
 
-department = input("Enter department for query: ")
+department = input("enter department for query: ")
 result = perform_db_query(connection, get_department_parent_title, (department,))
 
 if not result:
@@ -20,6 +20,6 @@ if not result:
         output = pd.DataFrame(result, columns=["ID", "Title", "Price"])
         print(output)
     else:
-        print("No products found for this department")
+        print("no products found for this department")
 else:
     print(result)

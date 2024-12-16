@@ -1,51 +1,51 @@
-# Query 1:
-SELECT description AS welcome_text
-FROM departments
-WHERE parent_title IS NULL
-LIMIT 1;
+# query 1:
+select description as welcome_text
+from departments
+where parent_title is null
+limit 1;
 
-# Query 2:
-SELECT title, root_url, description, logo
-FROM departments
-WHERE parent_title IS NULL;
+# query 2:
+select title, root_url, description, logo
+from departments
+where parent_title is null;
 
-# Query 3:
-SELECT product_id, title, retail_price, description
-FROM products
-WHERE sale > 0
-ORDER BY retail_price
-LIMIT 10;
+# query 3:
+select product_id, title, retail_price, description
+from products
+where sale > 0
+order by retail_price
+limit 10;
 
-# Query 4:
-SELECT DISTINCT  p.title
-FROM products p
-JOIN has_keywords hk ON p.product_id = hk.product_id
-WHERE hk.keyword_id IN (
-    SELECT keyword_id
-    FROM has_keywords
-    WHERE product_id = 1
-) AND p.product_id != 1;
+# query 4:
+select distinct  p.title
+from products p
+join has_keywords hk on p.product_id = hk.product_id
+where hk.keyword_id in (
+    select keyword_id
+    from has_keywords
+    where product_id = 1
+) and p.product_id != 1;
 
-#Query 5
-SELECT
+#query 5
+select
     p.title,
     p.description,
     p.retail_price,
-    AVG(r.stars)
-FROM
+    avg(r.stars)
+from
     products p
-JOIN
-    has_products hp ON p.product_id = hp.product_id
-JOIN
-    departments d ON hp.title = d.title
-JOIN
-    reviews r ON p.product_id = r.product_id
-WHERE
+join
+    has_products hp on p.product_id = hp.product_id
+join
+    departments d on hp.title = d.title
+join
+    reviews r on p.product_id = r.product_id
+where
     d.title = 'mobiles';
 
-Select
+select
     p.title,
     p.sale
 from
     products p
-order by p.sale DESC
+order by p.sale desc
